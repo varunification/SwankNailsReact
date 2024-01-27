@@ -1,11 +1,48 @@
-import React from 'react'
+import React, { useRef, useState } from 'react'
 
 export default function Contact() {
+
+    const [formData, setFormData] = useState({
+        name: "",
+        email: "",
+        tel: "",
+      });
+
+      const handleChange = (e) => {
+        setFormData({
+          ...formData,
+          [e.target.name]: e.target.value,
+        });
+      };
+
+      const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log(formData);
+        // Send the form data to the API using fetch
+        // fetch("#", {
+        //   method: "POST",
+        //   headers: {
+        //     "Content-Type": "application/json",
+        //   },
+        //   body: JSON.stringify(formData),
+        // })
+        //   .then((response) => response.json())
+        //   .then((data) => {
+        //     console.log("Success:", data);
+        //     // Handle success, e.g., show a success message
+        //   })
+        //   .catch((error) => {
+        //     console.log("Success:", data);
+        //     console.error("Error:", error);
+        //     // Handle error, e.g., show an error message
+        //   });
+      };    
+
     return (
         <div className="relative flex items-top justify-center min-h-[700px] bg-white sm:items-center sm:pt-0">
             <div className="max-w-6xl mx-auto sm:px-6 lg:px-8">
                 <div className="mt-8 overflow-hidden">
-                    <div className="grid grid-cols-1 md:grid-cols-2">
+                    <div className="grid grid-cols-2 md:grid-cols-2">
                         <div className="p-6 mr-2 bg-gray-100 sm:rounded-lg">
                             <h1 className="text-3xl sm:text-4xl text-gray-800 font-extrabold tracking-tight">
                                 Get in touch: 
@@ -87,7 +124,7 @@ export default function Contact() {
                             </div>
                         </div>
 
-                        <form className="p-6 flex flex-col justify-center">
+                        <form className="p-6 flex flex-col justify-center" onSubmit={handleSubmit}>
                             <div className="flex flex-col">
                                 <label for="name" className="hidden">
                                     Full Name
@@ -97,6 +134,7 @@ export default function Contact() {
                                     name="name"
                                     id="name"
                                     placeholder="Full Name"
+                                    onChange={handleChange}
                                     className="w-100 mt-2 py-3 px-3 rounded-lg bg-white border border-gray-400 text-gray-800 font-semibold focus:border-orange-500 focus:outline-none"
                                 />
                             </div>
@@ -109,6 +147,7 @@ export default function Contact() {
                                     type="email"
                                     name="email"
                                     id="email"
+                                    onChange={handleChange}
                                     placeholder="Email"
                                     className="w-100 mt-2 py-3 px-3 rounded-lg bg-white border border-gray-400 text-gray-800 font-semibold focus:border-orange-500 focus:outline-none"
                                 />
@@ -122,6 +161,7 @@ export default function Contact() {
                                     type="tel"
                                     name="tel"
                                     id="tel"
+                                    onChange={handleChange}
                                     placeholder="Telephone Number"
                                     className="w-100 mt-2 py-3 px-3 rounded-lg bg-white border border-gray-400 text-gray-800 font-semibold focus:border-orange-500 focus:outline-none"
                                 />

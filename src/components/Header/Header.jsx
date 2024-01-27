@@ -4,9 +4,9 @@ import { Link, NavLink } from 'react-router-dom'
 
 export default function Header() {
   return (
-    <header className="shadow sticky z-50 top-0">
-      <nav className="bg-white border-gray-200 px-4 lg:px-6 py-2.5">
-        <div className="flex justify-between items-center mx-auto max-w-screen-xl">
+    <header className="shadow sticky z-50 top-0 bg-black">
+      <nav className=" border-gray-200 px-4 lg:px-6 py-2.5">
+        <div className=" mx-auto max-w-screen-xl">
           <Link to="/" className="flex lg:items-center lg:w-auto">
             <img
               src={output}
@@ -15,7 +15,7 @@ export default function Header() {
             />
           </Link>
 
-          <ul className="flex flex-row mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0 lg:items-center lg:w-auto justify-center">
+          <ul className="sm:flex-column flex flex-row mt-3 font-medium lg:flex-row lg:space-x-8 lg:mt-0 lg:items-center lg:w-auto justify-center">
             <li>
               <NavLink
                 to="/"
