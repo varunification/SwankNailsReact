@@ -36,20 +36,21 @@ export default function Home() {
                 
            
 
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 place-items-center sm:mt-20 relative">
-    <div>
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 place-items-center sm:mt-96 relative mt-20">
+    <div className='flex flex-col items-center'>
         <img className="w-36 sm:w-96" src="https://i.imgur.com/7afPAGW.jpg" alt="image2" />
-        <span className="text-1xl text-white">Variety of Ladies Gel nails, Mani, Pedis, Extensions, Nail art, Nail filing</span>
+        <span className="text-1xl text-black">Variety of Ladies Gel nails, Mani, Pedis, Extensions, Nail art, Nail filing</span>
     </div>
-    <div>
+    <div className='flex flex-col items-center'>
         <img className="w-36 sm:w-96" src="https://i.imgur.com/S6hs2mu.jpg" alt="image2" />
-        <span className="text-1xl text-white">Trained Nail technician to serve you to the best satisfaction level.</span>
+        <span className="text-1xl text-black">Trained Nail technician to serve you to the best satisfaction level.</span>
     </div>
-    <div>
+    <div className='flex flex-col items-center mt-[-15px]'>
         <img className="w-36 sm:w-96" src="https://i.imgur.com/u5diL0f.jpg" alt="image2" />
-        <span className="text-1xl text-white">Premium products like Shellac, O.P.I etc.</span>
+        <span className="text-1xl text-black">Premium products like Shellac, O.P.I etc.</span>
     </div>
 </div>
+
 
 
             <h1 className=" text-center text-2xl sm:text-5xl py-10 font-medium w-100"></h1>
