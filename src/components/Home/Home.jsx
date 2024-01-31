@@ -11,7 +11,7 @@ export default function Home() {
                     <div className="max-w-xl sm:mt-1 mt-80 space-y-8 text-center sm:text-right sm:ml-auto">
                         <h2 className="text-4xl font-bold sm:text-5xl text-orange-700">
                            Swanky Nails
-                            <span className="hidden sm:block text-3xl text-orange-500">your one in all beauty</span>
+                            <span className="hidden sm:block text-3xl text-orange-500">Pamper your nails, indulge your soul</span>
                         </h2>
 
                         <Link
