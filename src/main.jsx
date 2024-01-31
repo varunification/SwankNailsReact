@@ -10,6 +10,8 @@ import Contact from './components/Contact/Contact.jsx'
 import User from './components/User/User.jsx'
 import Product from './components/Product/Product.jsx'
 import Github, { githubInfoLoader } from './components/Github/Github.jsx'
+import { ApplicationInsights } from '@microsoft/applicationinsights-web';
+
 
 // const router = createBrowserRouter([
 //   {
@@ -31,7 +33,13 @@ import Github, { githubInfoLoader } from './components/Github/Github.jsx'
 //     ]
 //   }
 // ])
-
+const appInsights = new ApplicationInsights({
+  config: {
+    instrumentationKey: 'ddcbc9d3-c335-40a6-b8d1-fd0f75f36223'
+  }
+});
+appInsights.loadAppInsights();
+appInsights.trackPageView({ name: 'App visited' });
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<Layout />}>
