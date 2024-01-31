@@ -36,7 +36,7 @@ export default function Home() {
                 
            
 
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 place-items-center sm:mt-96 relative mt-20">
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 place-items-center sm:mt-96 relative mt-40 mb-20">
     <div className='flex flex-col items-center'>
         <img className="w-36 sm:w-96" src="https://i.imgur.com/7afPAGW.jpg" alt="image2" />
         <span className="text-1xl text-black">Variety of Ladies Gel nails, Mani, Pedis, Extensions, Nail art, Nail filing</span>
