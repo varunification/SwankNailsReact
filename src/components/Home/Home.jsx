@@ -53,7 +53,7 @@ export default function Home() {
 
 
 
-            <h1 className=" text-center text-2xl sm:text-5xl py-10 font-medium w-100"></h1>
+            {/* <h1 className=" text-center text-2xl sm:text-5xl py-10 font-medium w-100"></h1> */}
         </div>
     );
 }
