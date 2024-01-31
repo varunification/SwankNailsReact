@@ -119,7 +119,7 @@ export default function Contact() {
                                     />
                                 </svg>
                                 <div className="ml-4 text-md tracking-wide font-semibold w-40">
-                                    info@acme.org
+                                   salonnailsswanky@gmail.com
                                 </div>
                             </div>
                         </div>

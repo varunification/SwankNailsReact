@@ -9,7 +9,7 @@ export default function Header() {
         <div className=" mx-auto max-w-screen-xl">
           <Link to="/" className="flex lg:items-center lg:w-auto">
             <img
-              src='https://i.imgur.com/mIvX7BX.png'
+              src='https://i.imgur.com/NL6Nxg0.png'
               className="mr-3 h-12 w-15"
               alt="Logo"
             />

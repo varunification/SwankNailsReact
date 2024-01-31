@@ -9,7 +9,7 @@ export default function Footer() {
                     <div className="mb-6 md:mb-0">
                         <Link to="/" className="flex items-center">
                             <img
-                                src="https://i.imgur.com/mIvX7BX.png"
+                                src="https://i.imgur.com/NL6Nxg0.png"
                                 className="mr-3 h-24 w-48"
                                 alt="Logo"
                             />
@@ -36,7 +36,7 @@ export default function Footer() {
                             <ul className="text-gray-500 font-medium">
                             
                                 <li>
-                                    <Link to="/" className="hover:underline">
+                                    <Link to="https://www.instagram.com/nails_swank?igsh=MWRseTZ4M3J1enUx" className="hover:underline">
                                         Instagram
                                     </Link>
                                 </li>
