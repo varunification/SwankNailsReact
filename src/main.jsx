@@ -35,9 +35,10 @@ import { ApplicationInsights } from '@microsoft/applicationinsights-web';
 // ])
 const appInsights = new ApplicationInsights({
   config: {
-    instrumentationKey: 'ddcbc9d3-c335-40a6-b8d1-fd0f75f36223'
+    InstrumentationKey:"InstrumentationKey=ddcbc9d3-c335-40a6-b8d1-fd0f75f36223;IngestionEndpoint=https://centralus-2.in.applicationinsights.azure.com/;LiveEndpoint=https://centralus.livediagnostics.monitor.azure.com/"
   }
 });
+
 appInsights.loadAppInsights();
 appInsights.trackPageView({ name: 'App visited' });
 const router = createBrowserRouter(
