@@ -33,6 +33,7 @@ import { ApplicationInsights } from '@microsoft/applicationinsights-web';
 //     ]
 //   }
 // ])
+
 const appInsights = new ApplicationInsights({
   config: {
     instrumentationKey: "ddcbc9d3-c335-40a6-b8d1-fd0f75f36223"
@@ -41,6 +42,7 @@ const appInsights = new ApplicationInsights({
 
 appInsights.loadAppInsights();
 appInsights.trackPageView({ name: 'App visited' });
+
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<Layout />}>
