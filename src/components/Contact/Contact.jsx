@@ -75,7 +75,7 @@ export default function Contact() {
                                     />
                                 </svg>
                                 <div className="ml-4 text-md tracking-wide font-semibold w-40">
-                                Building A7, Kumar Park Infinia, <br/>Phursungi, Pune, Maharashtra, 412308.
+                                 <br/>Phursungi, Pune, Maharashtra, 412308.
                                 </div>
                             </div>
 
