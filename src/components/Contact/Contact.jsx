@@ -17,26 +17,33 @@ export default function Contact() {
 
       const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(formData);
-        // Send the form data to the API using fetch
-        // fetch("#", {
-        //   method: "POST",
-        //   headers: {
-        //     "Content-Type": "application/json",
-        //   },
-        //   body: JSON.stringify(formData),
-        // })
-        //   .then((response) => response.json())
-        //   .then((data) => {
-        //     console.log("Success:", data);
-        //     // Handle success, e.g., show a success message
-        //   })
-        //   .catch((error) => {
-        //     console.log("Success:", data);
-        //     console.error("Error:", error);
-        //     // Handle error, e.g., show an error message
-        //   });
-      };    
+    
+        fetch("https://emailme20240203194946.azurewebsites.net/api/Function1?code=z4LlBnWlejb81x7TPrXSgqtnQfWQjjO2I0e0Dovg0UoCAzFuLLPYiQ==", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formData),
+        })
+        .then(response => {
+            if (!response.ok) {
+                // Handle HTTP errors
+                throw new Error('Network response was not ok');
+            }
+            return response.text(); // or response.json() if your function returns JSON
+        })
+        .then(data => {
+            console.log("Success:", data);
+            alert('Form submitted successfully!');
+            // Now 'data' contains the response body text
+            // You can log it to the console, as done above, or use it in the UI
+        })
+        .catch((error) => {
+            console.error("Error:", error);
+            alert('An error occurred while submitting the form.');
+        });
+    };
+    
 
     return (
         <div className="relative flex items-top justify-center min-h-[700px] bg-white sm:items-center sm:pt-0">
