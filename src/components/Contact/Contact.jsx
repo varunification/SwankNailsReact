@@ -35,7 +35,7 @@ export default function Contact() {
         .then(data => {
             console.log("Success:", data);
             alert('Form submitted successfully!');
-            // Now 'data' contains the response body text
+            setFormData({name: "", email: "", tel: ""});
             // You can log it to the console, as done above, or use it in the UI
         })
         .catch((error) => {
