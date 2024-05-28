@@ -40,3 +40,8 @@
 .read-the-docs {
   color: #888;
 }
+.overflow-wrap-break {
+  overflow-wrap: break-word;
+  word-wrap: break-word; /* for legacy browsers */
+  word-break: break-word;
+}
