@@ -1,21 +1,23 @@
-import React from 'react'
+import React from 'react';
 import { Link } from 'react-router-dom';
+import HomeImage from '../../assets/Purple Pink Aesthetic Gradient Nail Salon Services Presentation_20250302_214119_0000.jpg';
+
 export default function Home() {
     return (
         <div className="mx-auto w-full max-w-7xl">
-           
-           <div className="absolute inset-0 w-full sm:my-20 sm:pt-1 pt-12 h-full ">
-                    <img className="w-full" src="https://i.imgur.com/95Iu89s.jpg" alt="image1" />
+            <div className="relative">
+                <div className="absolute inset-0 w-full h-full">
+                    <img className="w-full" src={HomeImage} alt="image1" />
                 </div>
-                <div className="relative z-10 max-w-screen-xl px-4  pt-10 sm:py-24 mx-auto sm:px-6 lg:px-8">
+                <div className="relative z-10 max-w-screen-xl px-4 pt-10 sm:py-24 mx-auto sm:px-6 lg:px-8">
                     <div className="max-w-xl sm:mt-1 mt-80 space-y-8 text-center sm:text-right sm:ml-auto">
                         <h2 className="text-4xl font-bold sm:text-5xl text-orange-700">
-                           Swanky Nails
-                            <span className="hidden sm:block text-3xl text-orange-500">Pamper your nails, indulge your soul</span>
+                            Swanky Nails
+                            <span className="hidden sm:block text-3xl text-orange-500 mt-8">Pamper your nails, indulge your soul</span>
                         </h2>
 
                         <Link
-                            className="inline-flex text-white items-center px-6 py-3 font-medium bg-orange-700 rounded-lg hover:opacity-75"
+                            className="inline-flex text-white items-center px-6 py-3 font-medium bg-orange-700 rounded-lg hover:opacity-75 mt-58"
                             to="product"
                         >
                             <svg
@@ -32,28 +34,22 @@ export default function Home() {
                         </Link>
                     </div>
                 </div>
+            </div>
 
-                
-           
-
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 place-items-center sm:mt-96 relative mt-40 mb-20">
-    <div className='flex flex-col items-center'>
-        <img className="w-36 sm:w-96" src="https://i.imgur.com/7afPAGW.jpg" alt="image2" />
-        <span className="text-1xl text-black">Variety of Ladies Gel nails, Mani, Pedis, Extensions, Nail art, Nail filing</span>
-    </div>
-    <div className='flex flex-col items-center'>
-        <img className="w-36 sm:w-96" src="https://i.imgur.com/S6hs2mu.jpg" alt="image2" />
-        <span className="text-1xl text-black">Trained Nail technician to serve you to the best satisfaction level.</span>
-    </div>
-    <div className='flex flex-col items-center mt-[-15px]'>
-        <img className="w-36 sm:w-96" src="https://i.imgur.com/u5diL0f.jpg" alt="image2" />
-        <span className="text-1xl text-black">Premium products like Shellac, O.P.I etc.</span>
-    </div>
-</div>
-
-
-
-            {/* <h1 className=" text-center text-2xl sm:text-5xl py-10 font-medium w-100"></h1> */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 place-items-center sm:mt-96 relative mt-40 mb-20">
+                <div className='flex flex-col items-center'>
+                    <img className="w-36 sm:w-96" src="https://i.imgur.com/7afPAGW.jpg" alt="image2" />
+                    <span className="text-1xl text-black">Variety of Ladies Gel nails, Mani, Pedis, Extensions, Nail art, Nail filing</span>
+                </div>
+                <div className='flex flex-col items-center'>
+                    <img className="w-36 sm:w-96" src="https://i.imgur.com/S6hs2mu.jpg" alt="image2" />
+                    <span className="text-1xl text-black">Trained Nail technician to serve you to the best satisfaction level.</span>
+                </div>
+                <div className='flex flex-col items-center mt-[-15px]'>
+                    <img className="w-36 sm:w-96" src="https://i.imgur.com/u5diL0f.jpg" alt="image2" />
+                    <span className="text-1xl text-black">Premium products like Shellac, O.P.I etc.</span>
+                </div>
+            </div>
         </div>
     );
 }

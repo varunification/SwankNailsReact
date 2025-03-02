@@ -11,7 +11,7 @@ import User from './components/User/User.jsx'
 import Product from './components/Product/Product.jsx'
 import Github, { githubInfoLoader } from './components/Github/Github.jsx'
 import { ApplicationInsights } from '@microsoft/applicationinsights-web';
-
+import Services from './components/Product/Services.jsx'
 
 // const router = createBrowserRouter([
 //   {
@@ -55,6 +55,7 @@ const router = createBrowserRouter(
       path='github' 
       element={<Github />}
        />
+       <Route path='Services' element={<Services/>}/>
        <Route path='product' element={<Product/>}/>
     </Route>
   )
