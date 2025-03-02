@@ -37,7 +37,7 @@ export default function Footer() {
                             <ul className="text-gray-500 font-medium">
                             
                                 <li>
-                                    <Link to="https://www.instagram.com/nails_swank?igsh=MWRseTZ4M3J1enUx" className="hover:underline">
+                                    <Link to="https://www.instagram.com/nails_swank_pune?igsh=MWRseTZ4M3J1enUx" className="hover:underline">
                                         Instagram
                                     </Link>
                                 </li>
