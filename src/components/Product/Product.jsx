@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom'; // Import useParams
 import Item from './Item';
 import Service from '../../appwrite/config';
 
 export default function Product() {
-    // State to store the products fetched from Appwrite
     const [products, setProducts] = useState([]);
+    const [filteredProducts, setFilteredProducts] = useState([]); // State for filtered products
     const [heading, setHeading] = useState('');
+
+    // Get the slug from the URL using useParams
+    const { slug } = useParams();
 
     // Function to fetch products from Appwrite
     const fetchProducts = async () => {
@@ -38,6 +41,18 @@ export default function Product() {
         fetchProducts();
     }, []); // Empty dependency array ensures this runs only once on mount
 
+    // Filter products based on the slug
+    useEffect(() => {
+        if (slug) {
+            // If a slug is provided, filter products based on the 'header' field
+            const filtered = products.filter((product) => product.Category === slug);
+            setFilteredProducts(filtered);
+        } else {
+            // If no slug is provided, display all products
+            setFilteredProducts(products);
+        }
+    }, [slug, products]); // Re-run this effect when slug or products change
+
     return (
         <div className="mx-auto w-full max-w-7xl">
             {/* Heading Section */}
@@ -49,7 +64,7 @@ export default function Product() {
 
             {/* Products Grid */}
             <div className="grid grid-cols-2 place-items-center sm:mt-20 gap-3 mb-5">
-                {products.map((data) => (
+                {filteredProducts.map((data) => (
                     <Item
                         key={data.$id} // Use the unique ID from Appwrite
                         prod={{
