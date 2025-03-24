@@ -62,13 +62,13 @@ export default function Footer() {
                 </div>
                 <hr className="my-6 border-gray-200 sm:mx-auto lg:my-8" />
                 <div className="sm:flex sm:items-center sm:justify-between">
-                    <span className="text-sm text-gray-500 sm:text-center">
-                        © 2023 &nbsp;
+                <span className="text-sm text-gray-500 sm:text-center">
+                    © {new Date().getFullYear()} &nbsp;
                         <Link to="/" className="hover:underline">
-                           Swanki Nails
+                            Swanki Nails
                         </Link>
-                        . All Rights Reserved.
-                    </span>
+                    . All Rights Reserved.
+                </span>
                     <div className="flex mt-4 space-x-5 sm:justify-center sm:mt-0">
                         <Link to="#" className="text-gray-500 hover:text-gray-900">
                             <svg
