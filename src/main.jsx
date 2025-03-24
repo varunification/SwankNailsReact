@@ -12,6 +12,7 @@ import Product from './components/Product/Product.jsx'
 import Github, { githubInfoLoader } from './components/Github/Github.jsx'
 import { ApplicationInsights } from '@microsoft/applicationinsights-web';
 import Services from './components/Product/Services.jsx'
+import ProductDetail from './components/Product/ProductDetails.jsx'
 
 // const router = createBrowserRouter([
 //   {
@@ -59,7 +60,8 @@ const router = createBrowserRouter(
        <Route path='product' element={<Product />}>
         {/* Nested route for individual product details */}
         <Route path=':slug' element={<Product/>} />
-      </Route>
+       </Route>
+       <Route path='productDetail/:productId' element={<ProductDetail />} />
     </Route>
   )
 )
