@@ -1,12 +1,41 @@
-import React from 'react'
-import output from './output.jpg'
-import { Link, NavLink } from 'react-router-dom'
+import React, { useState } from 'react';
+import { Link, NavLink } from 'react-router-dom';
 
 export default function Header() {
+  const [isProductsHovered, setIsProductsHovered] = useState(false);
+  const [dropdownTimeout, setDropdownTimeout] = useState(null);
+
+  const subProducts = [
+    { name: 'Gel Nail Polish & Art', slug: 'Gel_Polish' },
+    { name: 'Extensions & Overlays', slug: 'Ex_Ov' },
+    { name: 'Bridal Nails', slug: 'Bride' },
+    { name: 'Kids Nail Services', slug: 'Kids' },
+    { name: 'Presson Nails & Nail Products', slug: 'Pressons' },
+    { name: 'Safe Removals', slug: 'Removals' },
+    { name: 'Manicure & Pedicure', slug: 'mani_pedi' },
+    { name: 'Professional Nail Art Courses', slug: 'Nail_Courses' }
+  ];
+
+  const handleMouseEnter = () => {
+    if (dropdownTimeout) {
+      clearTimeout(dropdownTimeout);
+      setDropdownTimeout(null);
+    }
+    setIsProductsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    // Add a slight delay before closing the dropdown
+    const timeout = setTimeout(() => {
+      setIsProductsHovered(false);
+    }, 300); // 300ms delay
+    setDropdownTimeout(timeout);
+  };
+
   return (
     <header className="shadow sticky z-50 top-0 bg-black">
-      <nav className=" border-gray-200 px-4 lg:px-6 py-2.5">
-        <div className=" mx-auto max-w-screen-xl">
+      <nav className="border-gray-200 px-4 lg:px-6 py-2.5">
+        <div className="mx-auto max-w-screen-xl">
           <Link to="/" className="flex lg:items-center lg:w-auto">
             <img
               src='https://i.imgur.com/NL6Nxg0.png'
@@ -46,7 +75,11 @@ export default function Header() {
                 Contact
               </NavLink>
             </li>
-            <li>
+            <li
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+              className="relative"
+            >
               <NavLink
                 to="/product"
                 className={({ isActive }) =>
@@ -55,6 +88,26 @@ export default function Header() {
               >
                 Products
               </NavLink>
+              {isProductsHovered && (
+                <ul
+                className={`absolute top-full left-0 bg-black shadow-lg rounded-lg mt-2 w-48`}
+                  onMouseEnter={handleMouseEnter} // Keep dropdown open when hovering over it
+                  onMouseLeave={handleMouseLeave} // Close dropdown when leaving it
+                >
+                  {subProducts.map((product) => (
+                    <li key={product.slug}>
+                      <NavLink
+                        to={`/product/${product.slug}`}
+                        className={({ isActive }) =>
+                          `block px-4 py-2 ${isActive ? "text-blue-700 hover:bgblack" : "text-white"} hover:bg-neutral-900`
+                        }
+                      >
+                        {product.name}
+                      </NavLink>
+                    </li>
+                  ))}
+                </ul>
+              )}
             </li>
           </ul>
         </div>

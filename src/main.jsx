@@ -56,7 +56,10 @@ const router = createBrowserRouter(
       element={<Github />}
        />
        <Route path='Services' element={<Services/>}/>
-       <Route path='product' element={<Product/>}/>
+       <Route path='product' element={<Product />}>
+        {/* Nested route for individual product details */}
+        <Route path=':slug' element={<Product/>} />
+      </Route>
     </Route>
   )
 )
