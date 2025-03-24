@@ -29,7 +29,7 @@ export default function Product() {
         if (slug) {
             const filtered = products.filter(product => product.Category === slug);
             setFilteredProducts(filtered);
-            setHeading(filtered[0]?.Heading || slug);
+            setHeading(filtered[0]?.Heading || 'No Product');
         } else {
             setFilteredProducts(products);
             setHeading('Products');
