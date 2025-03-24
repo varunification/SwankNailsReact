@@ -13,6 +13,7 @@ import Github, { githubInfoLoader } from './components/Github/Github.jsx'
 import { ApplicationInsights } from '@microsoft/applicationinsights-web';
 import Services from './components/Product/Services.jsx'
 import ProductDetail from './components/Product/ProductDetails.jsx'
+import NotFound from './components/Error/NotFound.jsx'
 
 // const router = createBrowserRouter([
 //   {
@@ -62,6 +63,7 @@ const router = createBrowserRouter(
         <Route path=':slug' element={<Product/>} />
        </Route>
        <Route path='productDetail/:productId' element={<ProductDetail />} />
+       <Route path="*" element={<NotFound />} />
     </Route>
   )
 )
