@@ -6,16 +6,14 @@ export default function Header() {
   const [dropdownTimeout, setDropdownTimeout] = useState(null);
 
   const subProducts = [
-    { name: 'Nail Paint', slug: 'nail-paint' },
-    { name: 'Pedicure', slug: 'pedicure' },
-    { name: 'Manicure', slug: 'manicure' },
-    { name: 'Facial', slug: 'facial' },
-    { name: 'Hair Styling', slug: 'hair-styling' },
-    { name: 'Waxing', slug: 'waxing' },
-    { name: 'Makeup', slug: 'makeup' },
-    { name: 'Massage', slug: 'massage' },
-    { name: 'Spa', slug: 'spa' },
-    { name: 'Eyelash Extensions', slug: 'eyelash-extensions' },
+    { name: 'Gel Nail Polish & Art', slug: 'Gel_Polish' },
+    { name: 'Extensions & Overlays', slug: 'Ex_Ov' },
+    { name: 'Bridal Nails', slug: 'Bride' },
+    { name: 'Kids Nail Services', slug: 'Kids' },
+    { name: 'Presson Nails & Nail Products', slug: 'Pressons' },
+    { name: 'Safe Removals', slug: 'Removals' },
+    { name: 'Manicure & Pedicure', slug: 'mani_pedi' },
+    { name: 'Professional Nail Art Courses', slug: 'Nail_Courses' }
   ];
 
   const handleMouseEnter = () => {

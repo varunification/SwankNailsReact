@@ -23,11 +23,6 @@ export default function Product() {
                 console.log("Products fetched successfully:");
                 console.log(response.documents); // Log the list of products
                 setProducts(response.documents); // Update state with fetched products
-
-                // Set the heading from the first product
-                if (response.documents.length > 0) {
-                    setHeading(response.documents[0].Heading);
-                }
             } else {
                 console.log("No products found or an error occurred.");
             }
@@ -44,7 +39,7 @@ export default function Product() {
     // Filter products based on the slug
     useEffect(() => {
         if (slug) {
-            // If a slug is provided, filter products based on the 'header' field
+            // If a slug is provided, filter products based on the 'Category' field
             const filtered = products.filter((product) => product.Category === slug);
             setFilteredProducts(filtered);
         } else {
@@ -53,12 +48,23 @@ export default function Product() {
         }
     }, [slug, products]); // Re-run this effect when slug or products change
 
+    // Set the heading based on filtered products
+    useEffect(() => {
+        if (filteredProducts.length > 0) {
+            // Set the heading from the first product in the filtered list
+            setHeading(filteredProducts[0].Heading);
+        } else {
+            // If no filtered products, set heading to an empty string
+            setHeading('');
+        }
+    }, [filteredProducts, slug]); // Re-run this effect when filteredProducts changes
+
     return (
         <div className="mx-auto w-full max-w-7xl">
             {/* Heading Section */}
             <div className="grid grid-cols-1 place-items-center sm:mt-20 gap-3 mb-3 mt-5">
                 <h1 className="text-3xl font-bold text-center">
-                    {heading}
+                    {heading==='' ? heading : `Products`}
                 </h1>
             </div>
 
