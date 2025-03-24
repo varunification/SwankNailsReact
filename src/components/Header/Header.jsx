@@ -92,7 +92,7 @@ export default function Header() {
               </NavLink>
               {isProductsHovered && (
                 <ul
-                  className="absolute top-full left-0 bg-white shadow-lg rounded-lg mt-2 w-48"
+                className={`absolute top-full left-0 bg-black shadow-lg rounded-lg mt-2 w-48`}
                   onMouseEnter={handleMouseEnter} // Keep dropdown open when hovering over it
                   onMouseLeave={handleMouseLeave} // Close dropdown when leaving it
                 >
@@ -100,7 +100,9 @@ export default function Header() {
                     <li key={product.slug}>
                       <NavLink
                         to={`/product/${product.slug}`}
-                        className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                        className={({ isActive }) =>
+                          `block px-4 py-2 ${isActive ? "text-blue-700 hover:bgblack" : "text-white"} hover:bg-neutral-900`
+                        }
                       >
                         {product.name}
                       </NavLink>
