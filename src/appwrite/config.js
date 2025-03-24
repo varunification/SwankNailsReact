@@ -102,8 +102,10 @@ export class Service{
             if (queries.length === 0) {
                 return await this.databases.listDocuments(
                     conf.appwriteDatabaseId,
-                    conf.appwriteCollectionId
-                );
+                    conf.appwriteCollectionId,
+                    [
+                        Query.limit(100) // Increase limit (max is 100)
+                    ])
             }
     
             // If queries are provided, filter by the specified heading

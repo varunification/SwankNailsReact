@@ -1,82 +1,58 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom'; // Import useParams
+import { Link, useParams } from 'react-router-dom';
 import Item from './Item';
 import Service from '../../appwrite/config';
 
 export default function Product() {
     const [products, setProducts] = useState([]);
-    const [filteredProducts, setFilteredProducts] = useState([]); // State for filtered products
-    const [heading, setHeading] = useState('');
+    const [filteredProducts, setFilteredProducts] = useState([]);
+    const [heading, setHeading] = useState('Products'); // Initialize with 'Products'
 
-    // Get the slug from the URL using useParams
     const { slug } = useParams();
 
-    // Function to fetch products from Appwrite
     const fetchProducts = async () => {
         try {
-            console.log("Fetching all products...");
-
-            // Call the getProduct method to fetch all products
             const response = await Service.getProduct();
-
-            if (response && response.documents) {
-                console.log("Products fetched successfully:");
-                console.log(response.documents); // Log the list of products
-                setProducts(response.documents); // Update state with fetched products
-            } else {
-                console.log("No products found or an error occurred.");
+            if (response?.documents) {
+                setProducts(response.documents);
             }
         } catch (error) {
             console.error("Error fetching products:", error);
         }
     };
 
-    // Fetch products when the component mounts
     useEffect(() => {
         fetchProducts();
-    }, []); // Empty dependency array ensures this runs only once on mount
+    }, []);
 
-    // Filter products based on the slug
     useEffect(() => {
+        // Filter logic
         if (slug) {
-            // If a slug is provided, filter products based on the 'Category' field
-            const filtered = products.filter((product) => product.Category === slug);
+            const filtered = products.filter(product => product.Category === slug);
             setFilteredProducts(filtered);
+            setHeading(filtered[0]?.Heading || 'No products found');
         } else {
-            // If no slug is provided, display all products
             setFilteredProducts(products);
+            setHeading('Products');
         }
-    }, [slug, products]); // Re-run this effect when slug or products change
-
-    // Set the heading based on filtered products
-    useEffect(() => {
-        if (filteredProducts.length > 0) {
-            // Set the heading from the first product in the filtered list
-            setHeading(filteredProducts[0].Heading);
-        } else {
-            // If no filtered products, set heading to an empty string
-            setHeading('');
-        }
-    }, [filteredProducts, slug]); // Re-run this effect when filteredProducts changes
+    }, [slug, products]); // Only depend on slug and products
 
     return (
         <div className="mx-auto w-full max-w-7xl">
-            {/* Heading Section */}
             <div className="grid grid-cols-1 place-items-center sm:mt-20 gap-3 mb-3 mt-5">
                 <h1 className="text-3xl font-bold text-center">
-                    {heading==='' ? heading : `Products`}
+                    {heading}
                 </h1>
             </div>
 
-            {/* Products Grid */}
             <div className="grid grid-cols-2 place-items-center sm:mt-20 gap-3 mb-5">
-                {filteredProducts.map((data) => (
+                {(slug ? filteredProducts : products).map((data) => (
                     <Item
-                        key={data.$id} // Use the unique ID from Appwrite
+                        key={data.$id}
                         prod={{
                             id: data.$id,
-                            title: data.text, // Use the text field from Appwrite
-                            image: data.image, // Use the image field from Appwrite
+                            title: data.text,
+                            image: data.image,
                         }}
                     />
                 ))}
