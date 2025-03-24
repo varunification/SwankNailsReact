@@ -6,13 +6,13 @@ import Service from '../../appwrite/config';
 export default function Product() {
     const [products, setProducts] = useState([]);
     const [filteredProducts, setFilteredProducts] = useState([]);
-    const [heading, setHeading] = useState('Products'); // Initialize with 'Products'
+    const [heading, setHeading] = useState('Products');
 
     const { slug } = useParams();
 
     const fetchProducts = async () => {
         try {
-            const response = await Service.getProduct();
+            const response = await Service.getProducts();
             if (response?.documents) {
                 setProducts(response.documents);
             }
@@ -26,35 +26,41 @@ export default function Product() {
     }, []);
 
     useEffect(() => {
-        // Filter logic
         if (slug) {
             const filtered = products.filter(product => product.Category === slug);
             setFilteredProducts(filtered);
-            setHeading(filtered[0]?.Heading || 'No products found');
+            setHeading(filtered[0]?.Heading || slug);
         } else {
             setFilteredProducts(products);
             setHeading('Products');
         }
-    }, [slug, products]); // Only depend on slug and products
+    }, [slug, products]);
 
     return (
-        <div className="mx-auto w-full max-w-7xl">
-            <div className="grid grid-cols-1 place-items-center sm:mt-20 gap-3 mb-3 mt-5">
+        <div className="mx-auto w-full max-w-7xl px-4">
+            <div className="grid grid-cols-1 place-items-center sm:mt-10 gap-2 mb-6">
                 <h1 className="text-3xl font-bold text-center">
                     {heading}
                 </h1>
             </div>
 
-            <div className="grid grid-cols-2 place-items-center sm:mt-20 gap-3 mb-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-8">
                 {(slug ? filteredProducts : products).map((data) => (
-                    <Item
+                    <Link 
                         key={data.$id}
-                        prod={{
-                            id: data.$id,
-                            title: data.text,
-                            image: data.image,
-                        }}
-                    />
+                        to={`/ProductDetail/${data.$id}`}
+                        className="block h-full transition-transform hover:scale-[1.02]"
+                    >
+                        <Item
+                            prod={{
+                                id: data.$id,
+                                title: data.text || data.title,
+                                image: data.image,
+                                price: data.price,
+                                description: data.description
+                            }}
+                        />
+                    </Link>
                 ))}
             </div>
         </div>

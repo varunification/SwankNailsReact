@@ -95,8 +95,20 @@ export class Service{
             return false
         }
     }
+    async getProductById(productId) {
+        try {
+            return await this.databases.getDocument(
+                conf.appwriteDatabaseId,
+                conf.appwriteCollectionId,
+                productId
+            );
+        } catch (error) {
+            console.log("Appwrite service :: getProductById :: error", error);
+            return false;
+        }
+    }
 
-    async getProduct(queries = []) {
+    async getProducts(queries = []) {
         try {
             // If no queries are provided, return all products
             if (queries.length === 0) {
