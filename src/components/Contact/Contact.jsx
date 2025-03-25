@@ -88,7 +88,6 @@ export default function Contact() {
         </div>
     </div>
 </div>
-
                         {/* Contact Form Section */}
                         <div className="p-8 md:p-12">
                             <form onSubmit={handleSubmit} className="space-y-6">
