@@ -45,3 +45,8 @@
   word-wrap: break-word; /* for legacy browsers */
   word-break: break-word;
 }
+iframe{
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16/9;
+}
