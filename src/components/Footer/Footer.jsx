@@ -65,7 +65,7 @@ export default function Footer() {
                 <span className="text-sm text-gray-500 sm:text-center">
                     © {new Date().getFullYear()} &nbsp;
                         <Link to="/" className="hover:underline">
-                            Swanki Nails
+                            Swanky Nails
                         </Link>
                     . All Rights Reserved.
                 </span>
